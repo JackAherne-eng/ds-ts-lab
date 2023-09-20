@@ -24,4 +24,20 @@ function highestExtension(cs: Colleague[]): Colleague {
     );
     return result[cs.length - 1];
   }
-  console.log(highestExtension(colleagues.current));
+console.log(highestExtension(colleagues.current));
+
+function addColleague(colleagueArray: Colleague[], name: string, department: string, email: string) {
+  const highest = highestExtension(colleagues.current);
+  const newExtension = highest.contact.extension + 1;
+  const newColleague = {
+    name,
+    department,
+    contact: {
+      email,
+      extension: newExtension,
+    },
+  };
+  colleagueArray.push(newColleague);
+}
+addColleague(colleagues.current, "Sheild O Connell", "HR", "soc@here.com");
+console.log(colleagues.current.filter((c) => c.name === "Sheild O Connell"))
